@@ -1,12 +1,12 @@
 package module3.task4;
 
 public class User {
-    String name;
-    double balance;
-    int monthsOfEmployment;
-    String companyName;
-    int salary;
-    String currency;
+    private String name;
+    private double balance;
+    private int monthsOfEmployment;
+    private String companyName;
+    private int salary;
+    private String currency;
 
     public User(String name, int balance, int monthsOfEmployment, String companyName, int salary, String currency) {
         this.name = name;
