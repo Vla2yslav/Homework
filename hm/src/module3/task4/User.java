@@ -89,4 +89,9 @@ public class User {
     public void setCurrency(String currency) {
         this.currency = currency;
     }
+
+    public static void main(String[] args) {
+        int summ;
+        int addMonth;
+    }
 }
