@@ -23,13 +23,12 @@ public class User {
 
     public double withdraw(int summ){
         double commission = 0;
-        if (balance <= 0)
-            balance = -1;
         if (summ < 1000)
             commission = summ*0.05;
         else
            commission = summ*0.1;
-        balance = balance - summ - commission;
+        if (balance < balance - summ - commission)
+            return -1;
         return balance;
     }
 
