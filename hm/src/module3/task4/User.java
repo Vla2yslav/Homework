@@ -23,6 +23,8 @@ public class User {
 
     public double withdraw(int summ){
         double commission = 0;
+        if (balance <= 0)
+            balance = -1;
         if (summ < 1000)
             commission = summ*0.05;
         else
@@ -32,9 +34,7 @@ public class User {
     }
 
      public int companyNameLenght(){
-         int lenght = 0;
-         lenght = companyName.length();
-         return 0;
+         return companyName.length();
      }
 
     int monthIncreaser(int addMonth){
