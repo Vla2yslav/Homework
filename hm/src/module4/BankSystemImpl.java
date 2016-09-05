@@ -15,7 +15,7 @@ public class BankSystemImpl implements BankSystem {
 
     @Override
     public void transferMoney(User fromUser, User toUser, int amount) {
-        if (fromUser.getBalance() > fromUser.getBalance() - amount)
+        if ((fromUser.getBalance() - amount) > 0)
         { fromUser.setBalance(fromUser.getBalance() - amount);
             fundUser(toUser,amount);}
     }

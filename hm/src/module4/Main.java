@@ -43,11 +43,13 @@ public class Main {
         bankSystem.paySalary(user5);
         System.out.println(user5);
 
-        bankSystem.withdrawOfUser(user6, 208);
+
+        bankSystem.withdrawOfUser(user6, 200);
         bankSystem.fundUser(user6, 5);
-        bankSystem.transferMoney(user6, user3, 260);
+        bankSystem.transferMoney(user6, user3, 500);
         bankSystem.paySalary(user6);
         System.out.println(user6);
+        
     }
 
 }
