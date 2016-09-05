@@ -49,7 +49,7 @@ public class Main {
         bankSystem.transferMoney(user6, user3, 500);
         bankSystem.paySalary(user6);
         System.out.println(user6);
-        
+
     }
 
 }
