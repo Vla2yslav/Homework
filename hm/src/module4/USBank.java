@@ -8,7 +8,7 @@ public class USBank extends Bank {
 
     @Override
     int getLimitOfWithdrawal() {
-        switch (currency){
+        switch (getCurrency()){
             case USD: return 1000;
             case EUR: return 1200;
         }
@@ -18,16 +18,16 @@ public class USBank extends Bank {
     @Override
     int getLimitOfFunding() {
         int limitOfFunding = 0;
-        if (currency == Currency.EUR)
+        if (getCurrency() == Currency.EUR)
             limitOfFunding = 10000;
         return limitOfFunding;
     }
 
     @Override
     double getMonthlyRate() {
-        switch (currency){
+        switch (getCurrency()){
             case USD: return 0.01;
-            case EUR: return 0.15;
+            case EUR: return 0.015;
         }
         return 0;
     }
@@ -35,7 +35,7 @@ public class USBank extends Bank {
     @Override
     double getCommission() {
             int limit = getLimitOfWithdrawal();
-            switch (currency) {
+            switch (getCurrency()) {
                 case USD:
                     return limit <= 1000 ? 0.05 : 0.07;
                 case EUR:

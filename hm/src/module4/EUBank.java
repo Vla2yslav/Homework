@@ -7,7 +7,7 @@ public class EUBank extends Bank{
 
     @Override
     int getLimitOfWithdrawal() {
-        switch (currency){
+        switch (getCurrency()){
             case USD: return 2000;
             case EUR: return 2200;
         }
@@ -16,7 +16,7 @@ public class EUBank extends Bank{
 
     @Override
     int getLimitOfFunding() {
-        switch (currency){
+        switch (getCurrency()){
             case USD: return 10000;
             case EUR: return 20000;
         }
@@ -26,7 +26,7 @@ public class EUBank extends Bank{
     @Override
     double getMonthlyRate() {
        double rate = 0;
-        if (currency == Currency.EUR)
+        if (getCurrency() == Currency.EUR)
           rate = 0.01;
         return rate;
     }
@@ -34,7 +34,7 @@ public class EUBank extends Bank{
     @Override
     double getCommission() {
         int limit = getLimitOfWithdrawal();
-        switch (currency) {
+        switch (getCurrency()) {
             case USD:
                 return limit <= 1000 ? 0.05 : 0.07;
             case EUR:
