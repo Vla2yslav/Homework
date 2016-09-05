@@ -1,6 +1,6 @@
 package module4;
 
-import java.util.Currency;
+import module4.Currency;
 
 public abstract class Bank {
     long id;
@@ -34,8 +34,8 @@ public abstract class Bank {
 
 
     double moneyPaidMonthlyForSalary()
-    {
-        return 0;
+    { double avrmoney;
+        return avrmoney = avrSalaryOfEmployee * numberOfEmployees;
     };
 
 
