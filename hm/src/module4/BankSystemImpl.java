@@ -4,7 +4,7 @@ public class BankSystemImpl implements BankSystem {
 
     @Override
     public void withdrawOfUser(User user, int amount) {
-        if (user.getBalance() > user.getBalance() - amount)
+        if ((user.getBalance() - amount) >= 0)
             user.setBalance(user.getBalance() - amount);
     }
 
@@ -15,7 +15,7 @@ public class BankSystemImpl implements BankSystem {
 
     @Override
     public void transferMoney(User fromUser, User toUser, int amount) {
-        if ((fromUser.getBalance() - amount) > 0)
+        if ((fromUser.getBalance() - amount) >= 0)
         { fromUser.setBalance(fromUser.getBalance() - amount);
             fundUser(toUser,amount);}
     }
