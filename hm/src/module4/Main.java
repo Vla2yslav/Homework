@@ -4,7 +4,7 @@ import  module4.Bank;
 
 public class Main {
     public static void main(String[] args) {
-        User user1 = new User(23344312, "Jack", 200, 4, "IT", 500, new USBank(1413413, "USA", Currency.USD, 29, 500, 23, 10000));
+        User user1 = new User(23344312, "Jack", 2000, 4, "IT", 500, new USBank(1413413, "USA", Currency.USD, 29, 500, 23, 10000));
         User user2 = new User(4383925, "Oww", 1000, 12, "Go go", 1000, new USBank(4663119, "USA", Currency.USD, 58, 1000, 54, 100000));
         User user3 = new User(8493191, "Oliver", 5000, 36, "Quick", 600, new EUBank(937491, "Germany", Currency.EUR, 128, 570, 67, 150000));
         User user4 = new User(94109241, "Ann", 10, 11, "Boom", 400, new EUBank(97431424, "Poland", Currency.EUR, 49, 390, 51, 70000));
@@ -13,7 +13,7 @@ public class Main {
 
 
         BankSystemImpl bankSystem = new BankSystemImpl();
-        bankSystem.withdrawOfUser(user1, 100);
+        bankSystem.withdrawOfUser(user1, 1500);
         bankSystem.fundUser(user1, 500);
         bankSystem.transferMoney(user1, user4, 500);
         bankSystem.paySalary(user1);

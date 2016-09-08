@@ -4,12 +4,14 @@ public class BankSystemImpl implements BankSystem {
 
     @Override
     public void withdrawOfUser(User user, int amount) {
+        if (amount <= user.getBank().getLimitOfWithdrawal())
         if ((user.getBalance() - amount) >= 0)
-            user.setBalance(user.getBalance() - amount);
+            user.setBalance(user.getBalance() - amount - user.getBank().getCommission());
     }
 
     @Override
     public void fundUser(User user, int amount) {
+        if (amount <= user.getBank().getLimitOfFunding())
         user.setBalance(user.getBalance() + amount);
     }
 
