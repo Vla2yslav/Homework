@@ -4,9 +4,16 @@ import java.util.Date;
 
 public class TripAdvisorAPI implements API {
     private Room [] rooms;
+    Room [] findRooms;
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-        return rooms;
+        Room roomHotel[] = rooms;
+        for (int i =0; i <= 5;i++){
+            if (roomHotel[i].getPrice() == price || roomHotel[i].getPersons() == persons || roomHotel[i].getCityName() == city || roomHotel[i].getHotelName() == hotel)
+                roomHotel[i] = findRooms[i];
+        }
+
+        return findRooms;
     }
 
     public TripAdvisorAPI() {

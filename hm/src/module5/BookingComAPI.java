@@ -3,10 +3,17 @@ package module5;
 import java.util.Date;
 
 public class BookingComAPI implements API {
-    private Room [] rooms; 
+    private Room [] rooms;
+     Room [] findRooms;
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-        return rooms;
+        Room roomHotel[] = rooms;
+        for (int i =0; i <= 5;i++){
+            if (roomHotel[i].getPrice() == price || roomHotel[i].getPersons() == persons || roomHotel[i].getCityName() == city || roomHotel[i].getHotelName() == hotel)
+                roomHotel[i] = findRooms[i];
+        }
+
+        return findRooms;
     }
 
     public BookingComAPI() {
@@ -15,6 +22,7 @@ public class BookingComAPI implements API {
         Room room3 = new Room(345, 500, 4, new Date(2016, 10, 19), "Hilton", "Berlin");
         Room room4 = new Room(657, 50, 1, new Date(2016, 10, 17), "Arizon", "Paris");
         Room room5 = new Room(6, 167, 1, new Date(2016, 10, 18), "Sunrise", "Kiev");
+
         rooms[0] = room1;
         rooms[1] = room2;
         rooms[2] = room3;
