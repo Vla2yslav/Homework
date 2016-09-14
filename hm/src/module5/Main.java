@@ -11,6 +11,7 @@ public class Main {
         API api2 = new TripAdvisorAPI();
         API api3 = new GoogleAPI();
 
+        
         contrl.check(api1, api2);
         contrl.check(api1, api3);
         contrl.check(api2, api3);

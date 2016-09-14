@@ -3,13 +3,12 @@ package module5;
 public class Controller {
     API apis[] = new API[3];
 
-  /*  public Controller(API[] apis) {
-        this.apis = apis;
+    public Controller() {
         apis[0] = new BookingComAPI();
         apis[1] = new GoogleAPI();
         apis[2] = new TripAdvisorAPI();
     }
-*/
+
 
 
     Room[] requstRooms(int price, int persons, String city, String hotel){
@@ -39,28 +38,32 @@ public class Controller {
     };
 
     Room [] check(API api1, API api2){
-       Room [] DB;
+        Room [] DB;
         Room [] DB1;
         Room [] DB2;
+        Room [] Rezult;
+        int count = 0;
+        int l;
         DB = api1.getRooms();
         DB1 = api2.getRooms();
-        int count = 0;
-        DB2 = new Room [DB.length];
-        for (int i = 0; i < DB.length; i++) {
-            if (DB[i].equals(DB1[i]))
-                DB2[count++] = DB[i];}
-            Room[] checkRoom = new Room[count];
-            for (int j = 0; j < count; j++){
-               checkRoom[j] = DB2[j];
+        if (DB.length < DB1.length) {
+            l = DB.length;
+        } else {
+            l = DB1.length;
         }
-        return checkRoom;
-    };
+        DB2 = new Room [l];
+        for (int i = 0; i < DB.length; i++) {
+            for (int j = 0; j < DB1.length; j++){
+                if (DB[i].equals(DB1[j])) {
+                    DB2[count++] = DB[i];
+                    break;
+                }
+            }
+        }
+        Rezult = new Room[count];
+        for (int i = 0; i < count; i++) {
+            Rezult[i] = DB2[i];
+        }
+        return Rezult;
+    }
 }
-/*
-Room[] requstRooms(int price, int persons, String city, String hotel)
-which finds all the rooms with requested params. Method use all apis available to make search.
-Found rooms create to DB
-
-Room[] check(API api1, API api2)
-Check how many the same rooms two different apis return
- */
