@@ -5,21 +5,25 @@ import java.util.Date;
 public class GoogleAPI implements API {
 
     Room [] rooms;
-    Room [] findRooms;
+
 
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-        for (int i =0; i <= 5;i++){
+        Room [] findRooms = new Room [rooms.length];
+        int count = 0;
+        for (int i = 0; i < rooms.length; i++){
             if (rooms[i].getPrice() == price || rooms[i].getPersons() == persons || rooms[i].getCityName() == city || rooms[i].getHotelName() == hotel)
-                findRooms[i] = rooms[i];
+                findRooms[count++] = rooms[i];
         }
-
-        return findRooms;
+        Room[] resultRooms = new Room[count];
+        for (int i = 0; i < count; i++) {
+            resultRooms[i] = findRooms[i];
+        }
+        return resultRooms;
     }
 
     public GoogleAPI() {
         rooms = new Room[5];
-        findRooms = new Room [5];
         Room room11 = new Room(856, 370, 2, new Date(), "Cool hotel", "Kiev");
         Room room12 = new Room(735, 290, 3, new Date(2016, 10, 20), "Mountain", "Praha");
         Room room13 = new Room(5, 640, 4, new Date(2016, 10, 19), "Harold", "Berlin");

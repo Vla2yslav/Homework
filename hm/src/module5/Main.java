@@ -12,5 +12,6 @@ public class Main {
         API api3 = new GoogleAPI();
 
         contrl.check(api1, api2);
+        contrl.check(api1, api3);
     }
 }

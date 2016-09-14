@@ -3,17 +3,20 @@ package module5;
 import java.util.Date;
 
 public class TripAdvisorAPI implements API {
-    private Room [] rooms;
-    Room [] findRooms;
+    Room [] rooms;
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-        findRooms = new Room [5];
-        for (int i =0; i <= 5;i++){
+        Room [] findRooms = new Room [rooms.length];
+        int count = 0;
+        for (int i = 0; i < rooms.length; i++){
             if (rooms[i].getPrice() == price || rooms[i].getPersons() == persons || rooms[i].getCityName() == city || rooms[i].getHotelName() == hotel)
-                findRooms[i] = rooms[i];
+                findRooms[count++] = rooms[i];
         }
-
-        return findRooms;
+        Room[] resultRooms = new Room[count];
+        for (int i = 0; i < count; i++) {
+            resultRooms[i] = findRooms[i];
+        }
+        return resultRooms;
     }
 
     public TripAdvisorAPI() {
