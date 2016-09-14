@@ -18,7 +18,7 @@ public class BookingComAPI implements API {
 
     public BookingComAPI() {
         Room room1 = new Room(31, 300, 2, new Date(), "Boom hotel", "Kiev");
-        Room room2 = new Room(123, 250, 3, new Date(2016, 10, 20), "Hilton", "Praha");
+        Room room2 = new Room(100, 250, 3, new Date(2016, 10, 20), "Hilton", "Praha");
         Room room3 = new Room(345, 500, 4, new Date(2016, 10, 19), "Hilton", "Berlin");
         Room room4 = new Room(657, 50, 1, new Date(2016, 10, 17), "Arizon", "Paris");
         Room room5 = new Room(6, 167, 1, new Date(2016, 10, 18), "Sunrise", "Kiev");
@@ -30,7 +30,7 @@ public class BookingComAPI implements API {
         rooms[4] = room5;
     }
 
-    public Room[] getRooms() {
+   public Room[] getRooms() {
         return rooms;
     }
 }
