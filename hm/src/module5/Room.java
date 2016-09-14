@@ -69,28 +69,23 @@ public class Room {
 
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj == null)
-        {
-            return false;
-        }
-        if (obj == this)
-        {
-            return true;
-        }
-        if (getClass() != obj.getClass())
-        {
-            return false;
-        }
-        Room r = (Room) obj;
-        return (this.getPrice() == r.getPrice() && this.getPersons() == r.getPersons() && this.getCityName() == r.getCityName());
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Room room = (Room) o;
+
+        if (price != room.price) return false;
+        if (persons != room.persons) return false;
+        return cityName != null ? cityName.equals(room.cityName) : room.cityName == null;
+
     }
 
     @Override
     public int hashCode() {
-        final int PRIME = 12;
-        int result = 4;
-        result = (int) (PRIME * result + getPrice()- getPersons());
+        int result = price;
+        result = 31 * result + persons;
+        result = 31 * result + (cityName != null ? cityName.hashCode() : 0);
         return result;
     }
 }
