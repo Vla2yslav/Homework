@@ -3,14 +3,18 @@ package module5;
 public class Controller {
     API apis[] = new API[3];
 
+    public Controller(API[] apis) {
+        this.apis = apis;
+        apis[0] = new BookingComAPI();
+        apis[1] = new GoogleAPI();
+        apis[2] = new TripAdvisorAPI();
+    }
+
     Room[] requstRooms(int price, int persons, String city, String hotel){
       Room [] DB;
         Room [] DB1;
         Room [] DB2;
         Room [] Rezult;
-        apis[0] = new BookingComAPI();
-        apis[1] = new GoogleAPI();
-        apis[2] = new TripAdvisorAPI();
         DB = apis[0].findRooms(price, persons, city, hotel);
         DB1 =  apis[1].findRooms(price, persons, city, hotel);
         DB2  = apis[2].findRooms(price, persons, city, hotel);
