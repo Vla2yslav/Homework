@@ -6,7 +6,7 @@ public class Controller {
     Room []  DB1;
     Room []  DB2;
     Room [] Rezult;
-
+    Room [] Check;
     Room[] requstRooms(int price, int persons, String city, String hotel){
        DB = apis[0].findRooms(price, persons, city, hotel);
        DB1 =  apis[1].findRooms(price, persons, city, hotel);
@@ -27,7 +27,7 @@ public class Controller {
     };
 
     Room [] check(API api1, API api2){
-        
+    
 
         return new Room [0];
     };

@@ -28,4 +28,8 @@ public class TripAdvisorAPI implements API {
         rooms[8] = room9;
         rooms[9] = room10;
     }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
 }

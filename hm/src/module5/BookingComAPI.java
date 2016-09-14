@@ -29,4 +29,8 @@ public class BookingComAPI implements API {
         rooms[3] = room4;
         rooms[4] = room5;
     }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
 }

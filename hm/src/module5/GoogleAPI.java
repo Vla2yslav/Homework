@@ -31,6 +31,8 @@ public class GoogleAPI implements API {
         return findRooms;
     }
 
-
+    public Room[] getRooms() {
+        return rooms;
+    }
 }
 
