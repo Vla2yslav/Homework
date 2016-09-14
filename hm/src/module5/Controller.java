@@ -16,9 +16,6 @@ public class Controller {
         Room [] DB1;
         Room [] DB2;
         Room [] Rezult;
-        apis[0] = new BookingComAPI();
-        apis[1] = new GoogleAPI();
-        apis[2] = new TripAdvisorAPI();
         DB = apis[0].findRooms(price, persons, city, hotel);
         DB1 =  apis[1].findRooms(price, persons, city, hotel);
         DB2  = apis[2].findRooms(price, persons, city, hotel);

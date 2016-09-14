@@ -90,7 +90,7 @@ public class Room {
     public int hashCode() {
         final int PRIME = 12;
         int result = 4;
-        result = (int) (PRIME * result + getId());
+        result = (int) (PRIME * result + getPrice()- getPersons());
         return result;
     }
 }
