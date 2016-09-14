@@ -3,18 +3,23 @@ package module5;
 public class Controller {
     API apis[] = new API[3];
 
-    public Controller(API[] apis) {
+  /*  public Controller(API[] apis) {
         this.apis = apis;
         apis[0] = new BookingComAPI();
         apis[1] = new GoogleAPI();
         apis[2] = new TripAdvisorAPI();
     }
+*/
+
 
     Room[] requstRooms(int price, int persons, String city, String hotel){
       Room [] DB;
         Room [] DB1;
         Room [] DB2;
         Room [] Rezult;
+        apis[0] = new BookingComAPI();
+        apis[1] = new GoogleAPI();
+        apis[2] = new TripAdvisorAPI();
         DB = apis[0].findRooms(price, persons, city, hotel);
         DB1 =  apis[1].findRooms(price, persons, city, hotel);
         DB2  = apis[2].findRooms(price, persons, city, hotel);
@@ -39,19 +44,16 @@ public class Controller {
         Room [] DB2;
         DB = api1.getRooms();
         DB1 = api2.getRooms();
-        int l= 0;
-        /*if (DB.length < DB1.length)
-            l = DB.length;
-        else l = DB1.length;*/
-        DB2 = new Room [l];
+        int count = 0;
+        DB2 = new Room [DB.length];
         for (int i = 0; i < DB.length; i++) {
             if (DB[i].equals(DB1[i]))
-                DB2[i] = DB[i];
-            for (int j = 1; j < DB1.length; j++){
-                if (DB[i].equals(DB1[j]))
-                    DB2[j] = DB[j];}
+                DB2[count++] = DB[i];}
+            Room[] checkRoom = new Room[count];
+            for (int j = 0; j < count; j++){
+               checkRoom[j] = DB2[j];
         }
-        return DB2;
+        return checkRoom;
     };
 }
 /*

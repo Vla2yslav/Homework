@@ -13,5 +13,6 @@ public class Main {
 
         contrl.check(api1, api2);
         contrl.check(api1, api3);
+        contrl.check(api2, api3);
     }
 }
