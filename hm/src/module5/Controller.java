@@ -16,6 +16,7 @@ public class Controller {
         Room [] DB1;
         Room [] DB2;
         Room [] Rezult;
+        DAOImpl oper = new DAOImpl();
         DB = apis[0].findRooms(price, persons, city, hotel);
         DB1 =  apis[1].findRooms(price, persons, city, hotel);
         DB2  = apis[2].findRooms(price, persons, city, hotel);
@@ -30,7 +31,10 @@ public class Controller {
         for (int j = DB1.length, k = 0; k < DB2.length; j++, k++) {
             Rezult[j] = DB2[k];
         }
-
+        for (int p = 0; p < Rezult.length; p++)
+        {
+            oper.save(Rezult[p]);
+        }
         return Rezult;
     };
 
