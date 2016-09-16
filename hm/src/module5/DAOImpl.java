@@ -1,54 +1,74 @@
 package module5;
 
 
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 
 public class DAOImpl implements DAO {
     Room [] db = new Room [10];
-int i;
     @Override
     public Room save(Room room) {
-        for (int i = 0; i < db.length; i++){
-            if (db[i] == null)
-               db[i] = room;
-        break;}
+        int i =0;
+        int count = 0;
+        for (int p = 0; p < db.length; p++) {
+            if (db[p] != null)
+               count++ ;}
+               if (count == db.length)
+                   System.out.println("Data Base is full.");
+        else for (i = 0; i < db.length; i++) {
+            if (db[i] == null) {
+                db[i] = room;
+                System.out.println(room + " was saved.");
+                return db[i];
+                    }
+                }
 
-        System.out.println(room + " was saved.");
         return db[i];
     }
 
     @Override
     public boolean delete(Room room) {
-        for (i = 0; i<db.length;i++){
-            if (room == db[i])
+        for (int i = 0; i<db.length;i++){
+            if (room == db[i]){
                 db[i] = null;
-        break;}
+                break;}}
         System.out.println(room + " was deleted.");
         return true;
     }
 
     @Override
     public Room update(Room room) {
-        db[9] = room;
-        System.out.println(room + " was updated.");
-        return db[9];
+        int i =0;
+        for (i = 0; i < db.length;i++){
+            if (room.getId() == db[i].getId()){
+                db[i] = room;
+                System.out.println(room + " was updated.");
+                break;}}
+
+        return db[i];
     }
 
     @Override
     public Room findById(long id) {
-        Room [] findRoomId = new Room[10];
-        for (i = 0; i < db.length; i++){
-        if (id == db[i].getId())
-            findRoomId[i] = db[i];
-        break;}
-        if (findRoomId[i] == null)
-             System.out.println("ID doesn't exist.");
-        else System.out.println(findRoomId[i] + " was found.");
-        return findRoomId[i];
+        int i;
+       for ( i = 0; i < db.length; i++){
+            if (db[i].getId() == id ){
+                System.out.println(db[i]+" is found.");
+            return db[i];}
+        }
+        return db[i];
     }
 
     @Override
     public Room[] getAll() {
-        return db;
+        int count = 0;
+        for (int p = 0; p < db.length; p++) {
+            if (db[p] != null)
+                count++ ;}
+        Room [] allRoom = new Room [count];
+        int j = 0;
+        for (int p = 0; p < count; p++) {
+            if (db[p] != null){
+                allRoom [j] = db[p];
+            j++;}}
+        return allRoom;
     }
 }

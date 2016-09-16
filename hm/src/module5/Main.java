@@ -22,16 +22,20 @@ public class Main {
         Room room24 = new Room(735, 290, 3, new Date(2016, 10, 20), "Mountain", "Praha");
         Room room25 = new Room(5, 640, 4, new Date(2016, 10, 19), "Harold", "Berlin");
         Room room26 = new Room(790, 505, 2, new Date(2016, 10, 17), "Apler", "Paris");
-        Room room27 = new Room(23, 527, 2, new Date(2016, 10, 18), "Sungarden", "Kiev");
+        Room room27 = new Room(5, 527, 2, new Date(2016, 10, 18), "Sungarden", "Kiev");
+        Room room28 = new Room(351, 370, 2, new Date(), "Spa hotel", "Kiev");
 
         DAOImpl oper = new DAOImpl();
 
         oper.save(room23);
         oper.save(room24);
         oper.delete(room24);
-        oper.findById(856);
-        oper.findById(5);
+        oper.save(room25);
         oper.update(room27);
+        //oper.findById(856);
+        oper.findById(5);
+        //oper.update(room27);
+
 
     }
 }
