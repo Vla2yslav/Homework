@@ -2,7 +2,7 @@ package module6;
 
 public class UserUtils {
     User[] uniqueUsers(User[] users){
-        for (int i = 0, k = 1; i < users.length; i++, k++){
+       /*for (int i = 0, k = 1; i < users.length; i++, k++){
            if (k == users.length)
                break;
             if (users[i] == null)
@@ -10,16 +10,33 @@ public class UserUtils {
             if (k == deleteEmptyUsers(users).length)
                 break;
             if (users[i].equals(users[k]))
-                users[k] = null;}
+                users[i] = null;}*/
+
+        for (int i = 0; i < users.length; i++) {
+          users = deleteEmptyUsers(users);
+            for (int j = 0; j < users.length; j++){
+                if (users[i] == null)
+                    deleteEmptyUsers(users);
+                if (users[i].equals(users[j]) && j != i) {
+                    users[j] = null;}
+            }
+        }
     return users;
+
     }
 
     User[] usersWithConditionalBalance(User[] users, int balance){
-        User [] arrayUser = new User[1];
+        int count = 0;
+        int p = 0;
         for (int i = 0; i < users.length; i++)
             if (users[i].getBalance() == balance){
-                arrayUser[0] = users[i];
-                break;}
+            count++;
+            }
+        User [] arrayUser = new User[count];
+        for (int i = 0; i < users.length; i++)
+            if (users[i].getBalance() == balance){
+                arrayUser[p] = users[i];
+                p++;}
        return arrayUser;
     }
 
