@@ -1,8 +1,10 @@
 package module7;
 
 
+import java.util.List;
+import java.util.TreeSet;
 
-public class Order{
+public class Order implements Comparable<Order>{
 
     long id;
     int price;
@@ -24,8 +26,8 @@ public class Order{
     public String toString() {
         return "Order{" +
                // "id=" + id +
-              //  ", price=" + price +
-              //  ", currency=" + currency +
+                ", price=" + price +
+                ", currency=" + currency +
                 ", itemName='" + itemName + '\'' +
                 ", shopIdentificator='" + shopIdentificator + '\'' +
                 ", user=" + user +
@@ -39,6 +41,9 @@ public class Order{
 
         Order order = (Order) o;
 
+        if (id != order.id) return false;
+        if (price != order.price) return false;
+        if (currency != order.currency) return false;
         if (itemName != null ? !itemName.equals(order.itemName) : order.itemName != null) return false;
         if (shopIdentificator != null ? !shopIdentificator.equals(order.shopIdentificator) : order.shopIdentificator != null)
             return false;
@@ -48,7 +53,10 @@ public class Order{
 
     @Override
     public int hashCode() {
-        int result = itemName != null ? itemName.hashCode() : 0;
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + price;
+        result = 31 * result + (currency != null ? currency.hashCode() : 0);
+        result = 31 * result + (itemName != null ? itemName.hashCode() : 0);
         result = 31 * result + (shopIdentificator != null ? shopIdentificator.hashCode() : 0);
         result = 31 * result + (user != null ? user.hashCode() : 0);
         return result;
@@ -100,5 +108,21 @@ public class Order{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public int compareTo(Order o) {
+        return price - o.getPrice();
+    }
+
+    public Order get(List<Order> orders) {
+    /*for (int i = 0; i < orders.size(); i++) {
+        int max = orders.get(0).getPrice();
+        if (orders.get(i).getPrice() > max)
+            max = orders.get(i).getPrice();
+    }*/
+    orders.sort(new ComparatorPrice());
+        System.out.println(orders.get(0));
+    return orders.get(0);
     }
 }
