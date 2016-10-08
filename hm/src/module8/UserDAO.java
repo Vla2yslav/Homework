@@ -3,14 +3,15 @@ package module8;
 import java.util.List;
 
 public class UserDAO extends AbstractDAOImpl{
-        @Override
-        public void save (User t){
-            super.save(t);
-        }
 
-        @Override
-        public Object delete (Object o){
-            return super.delete(o);
+    @Override
+         public Object save(Object t) {
+         return super.save(t);
+         }
+
+    @Override
+        public void delete (Object o){
+            super.delete(o);
         }
 
         @Override

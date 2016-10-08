@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbstractDAOImpl implements AbsractDAO{
-   List<User> db = new ArrayList<>();
+   List<Object> db = new ArrayList<>();
 
     @Override
-    public void save(User t) {
+    public Object save(Object t) {
         db.add(t);
         System.out.println("Obj was saved.");
+        return db;
     }
 
     @Override
-    public Object delete(Object o) {
+    public void delete(Object o) {
         if (db.contains(o)){
             db.remove(o);
             System.out.println("Obj was deleted.");}
         else System.out.println("Obj not found.");
-        return db;
     }
 
     @Override
@@ -34,6 +34,8 @@ public class AbstractDAOImpl implements AbsractDAO{
         db.addAll(list);
         System.out.println("All obj was saved.");
     }
+
+
 
     @Override
     public List getList() {
