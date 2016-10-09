@@ -150,5 +150,150 @@ public class Time {
         long finish15 = System.currentTimeMillis();
         long a15 = finish15 - start15;
         System.out.println("remove for 1000 elements: " + a15);
+
+
+        List<Integer> listInt2 = new ArrayList<>();
+
+        long start16 = System.currentTimeMillis();
+        for(int i = 0, j = 999 ; i < 10000; i ++, j++) {
+            listInt.add(j*3);
+        }
+        long finish16 = System.currentTimeMillis();
+        long a16 = finish16 - start16;
+        System.out.println("add for 1000 elements: " + a16);
+
+
+        long start17 = System.currentTimeMillis();
+        for(int i = 2, j = 999 ; i < 10000; i ++, j++) {
+            listInt.set(i, j*2);
+        }
+        long finish17 = System.currentTimeMillis();
+        long a17 = finish17 - start17;
+        System.out.println("set for 1000 elements: " + a17);
+
+        long start18 = System.currentTimeMillis();
+        for(int i = 0; i < 10000; i ++) {
+            listInt.get(i);
+        }
+        long finish18 = System.currentTimeMillis();
+        long a18 = finish18 - start18;
+        System.out.println("get for 1000 elements: " + a18);
+
+        long start19 = System.currentTimeMillis();
+        for(int i = 0; i < 1000; i ++) {
+            listInt.remove(i);
+        }
+        long finish19 = System.currentTimeMillis();
+        long a19 = finish19 - start19;
+        System.out.println("remove for 1000 elements: " + a19);
+
+
+
+        List<Integer> listInt3 = new LinkedList<>();
+
+        long start20 = System.currentTimeMillis();
+        for(int i = 0, j = 999 ; i < 10000; i ++, j++) {
+            listInt1.add(j*3);
+        }
+        long finish20 = System.currentTimeMillis();
+        long a20 = finish20 - start20;
+        System.out.println("add for 1000 elements: " + a20);
+
+
+        long start21 = System.currentTimeMillis();
+        for(int i = 2, j = 999 ; i < 10000; i ++, j++) {
+            listInt1.set(i, j*2);
+        }
+        long finish21 = System.currentTimeMillis();
+        long a21 = finish21 - start21;
+        System.out.println("set for 1000 elements: " + a21);
+
+        long start22 = System.currentTimeMillis();
+        for(int i = 0; i < 10000; i ++) {
+            listInt1.get(i);
+        }
+        long finish22 = System.currentTimeMillis();
+        long a22 = finish22 - start22;
+        System.out.println("get for 1000 elements: " + a22);
+
+        long start23 = System.currentTimeMillis();
+        for(int i = 0; i < 1000; i ++) {
+            listInt.remove(i);
+        }
+        long finish23 = System.currentTimeMillis();
+        long a23 = finish23 - start23;
+        System.out.println("remove for 1000 elements: " + a23);
+
+
+        List<String> listStr2 = new ArrayList<>();
+
+        long start24 = System.currentTimeMillis();
+        for(int i = 0; i < 10000; i ++) {
+            listStr.add("aasd");
+        }
+        long finish24 = System.currentTimeMillis();
+        long a24 = finish24 - start24;
+        System.out.println("add for 1000 elements: " + a24);
+
+
+        long start25 = System.currentTimeMillis();
+        for(int i = 2; i < 10000; i ++) {
+            listStr.set(i, "shtrhe");
+        }
+        long finish25 = System.currentTimeMillis();
+        long a25 = finish25 - start25;
+        System.out.println("set for 1000 elements: " + a25);
+
+        long start26 = System.currentTimeMillis();
+        for(int i = 0; i < 10000; i ++) {
+            listStr.get(i);
+        }
+        long finish26 = System.currentTimeMillis();
+        long a26 = finish26 - start26;
+        System.out.println("get for 1000 elements: " + a26);
+
+        long start27 = System.currentTimeMillis();
+        for(int i = 0; i < 1000; i ++) {
+            listStr.remove(i);
+        }
+        long finish27 = System.currentTimeMillis();
+        long a27 = finish27 - start27;
+        System.out.println("remove for 1000 elements: " + a27);
+
+
+        List<String> listStr3 = new LinkedList<>();
+
+        long start28 = System.currentTimeMillis();
+        for(int i = 0; i < 10000; i ++) {
+            listStr1.add("aasd");
+        }
+        long finish28 = System.currentTimeMillis();
+        long a28 = finish28 - start28;
+        System.out.println("add for 1000 elements: " + a28);
+
+
+        long start29 = System.currentTimeMillis();
+        for(int i = 2; i < 10000; i ++) {
+            listStr1.set(i, "shtrhe");
+        }
+        long finish29 = System.currentTimeMillis();
+        long a29 = finish29 - start29;
+        System.out.println("set for 1000 elements: " + a29);
+
+        long start30 = System.currentTimeMillis();
+        for(int i = 0; i < 10000; i ++) {
+            listStr1.get(i);
+        }
+        long finish30 = System.currentTimeMillis();
+        long a30 = finish30 - start30;
+        System.out.println("get for 1000 elements: " + a30);
+
+        long start31 = System.currentTimeMillis();
+        for(int i = 0; i < 1000; i ++) {
+            listStr1.remove(i);
+        }
+        long finish31 = System.currentTimeMillis();
+        long a31 = finish31 - start31;
+        System.out.println("remove for 1000 elements: " + a31);
     }
 }

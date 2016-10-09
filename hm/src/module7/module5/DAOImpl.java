@@ -16,17 +16,13 @@ public class DAOImpl implements DAO {
 
     @Override
     public boolean delete(Room room) {
-        Iterator<Room> it = db.iterator();
-        while (it.hasNext()) {
-            if (it.next() == room) {
-                it.remove();
-                System.out.println(room + " was deleted.");
-                return true;
-            }
-        }
-        System.out.println(room + " was not found.");
+        if (db.remove(room)) {
+            System.out.println(room + " was deleted.");
+            return true;
+        } else {
+            System.out.println(room + " was not found.");
             return false;
-
+        }
     }
 
     @Override

@@ -3,18 +3,18 @@ package module8;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbstractDAOImpl implements AbsractDAO{
-   List<Object> db = new ArrayList<>();
+public class AbstractDAOImpl<T> implements AbsractDAO<T>{
+   List<T> db = new ArrayList<>();
 
     @Override
-    public Object save(Object t) {
+    public T save(T t) {
         db.add(t);
         System.out.println("Obj was saved.");
-        return db;
+        return t;
     }
 
     @Override
-    public void delete(Object o) {
+    public void delete(T o) {
         if (db.contains(o)){
             db.remove(o);
             System.out.println("Obj was deleted.");}

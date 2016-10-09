@@ -73,5 +73,10 @@ public class Main {
 */
         Order order = new Order(3525, 50,Currency.UAH, "Wheel", "BobShop", new User(234432, "Vlad", "Len", "Kiev", 200));
         order.get(orders);
+
+        List<ArrayList<Order>> list2 = new ArrayList<>();
+        List<Order> sortList = new ArrayList<>();
+        //if (order.getUser().getCity().equals(order.getUser().getCity()))
+          //  sortList.add(order);
     }
 }
