@@ -33,7 +33,7 @@ public class Main {
         orders.add(new Order(875, 1600,Currency.EUR, "jacket", "BikeShop", new User(56432, "Shon", "Tompks", "Vashington", 2200)));
         orders.add(new Order(34575, 32,Currency.EUR, "bike", "ClothesShop", new User(98432, "Dilan", "Nale", "Odessa", 2)));
         orders.add(new Order(33625, 12,Currency.USD, "watch", "WatchShop", new User(2122, "Dona", "Gale", "Munchen", 34)));
-        orders.add(new Order(33625, 12,Currency.USD, "watch", "WatchShop", new User(2122, "Dona", "Gale", "Munchen", 34)));
+       // orders.add(new Order(33625, 12,Currency.USD, "watch", "WatchShop", new User(2122, "Dona", "Gale", "Munchen", 34)));
 
         //System.out.println(users);
         //System.out.println(orders);
@@ -74,9 +74,26 @@ public class Main {
         Order order = new Order(3525, 50,Currency.UAH, "Wheel", "BobShop", new User(234432, "Vlad", "Len", "Kiev", 200));
         order.get(orders);
 
-        List<ArrayList<Order>> list2 = new ArrayList<>();
-        List<Order> sortList = new ArrayList<>();
-        //if (order.getUser().getCity().equals(order.getUser().getCity()))
-          //  sortList.add(order);
+        List<List<Order>> list2 = new ArrayList<>();
+        List<Order> kiev = new ArrayList<>();
+        kiev.add(list.get(0));
+        List<Order> praha = new ArrayList<>();
+        praha.add(list.get(1));
+        List<Order> moscow = new ArrayList<>();
+        moscow.add(list.get(2));
+        List<Order> odessa = new ArrayList<>();
+        odessa.add(list.get(4));
+        List<Order> vashington = new ArrayList<>();
+        vashington.add(list.get(3));
+        List<Order> munchen = new ArrayList<>();
+        munchen.add(list.get(5));
+        list2.add(kiev);
+        list2.add(praha);
+        list2.add(moscow);
+        list2.add(odessa);
+        list2.add(vashington);
+        list2.add(munchen);
+        System.out.println(list2);
+
     }
 }
