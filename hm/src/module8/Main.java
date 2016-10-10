@@ -21,6 +21,9 @@ public class Main {
         userDAO.delete(user1);
         userDAO.saveAll(addusers);
         userDAO.deleteAll(addusers);
+        userDAO.save(user3);
+        userDAO.getList();
+        userDAO.deleteById(1);
         userDAO.getList();
 
     }

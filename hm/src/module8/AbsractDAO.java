@@ -9,5 +9,7 @@ public interface AbsractDAO <T>{
     void deleteAll(List<T> list);
     void saveAll(List<T> list);
     List<T> getList();
+    void deleteById(long id);
+    T get(long id);
 
 }

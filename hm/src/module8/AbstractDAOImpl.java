@@ -1,6 +1,7 @@
 package module8;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class AbstractDAOImpl<T> implements AbsractDAO<T>{
@@ -42,4 +43,15 @@ public class AbstractDAOImpl<T> implements AbsractDAO<T>{
         System.out.println(db);
         return db;
     }
+
+    @Override
+    public void deleteById(long id) {
+    }
+
+    @Override
+    public T get(long id) {
+        return null;
+    }
+
+
 }
