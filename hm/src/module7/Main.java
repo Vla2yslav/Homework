@@ -1,10 +1,6 @@
 package module7;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
-
 import java.util.*;
-
-import java.util.function.UnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,16 +20,18 @@ public class Main {
 
 
         List<Order> orders = new ArrayList<>();
-        orders.add(new Order(3525, 50,Currency.UAH, "Wheel", "BobShop", new User(234432, "Vlad", "Len", "Kiev", 200)));
-        orders.add(new Order(35213, 250,Currency.UAH, "car", "Dilan", new User(297532, "Den", "Naizer", "Praha", 100)));
-        orders.add(new Order(5465, 540,Currency.USD, "bus", "AppleShop", new User(2332, "Dima", "Kirk", "Moscow", 20)));
-      //  orders.add(new Order(3523235, 10,Currency.USD, "apple", "OrangeShop", new User(98032, "Bob", "Wendel", "Berlin", 150)));
-       // orders.add(new Order(467, 40,Currency.USD, "glass", "BusShop", new User(98032, "Bob", "Wendel", "Berlin", 150)));
-       // orders.add(new Order(6895, 890,Currency.EUR, "t-shirt", "CarShop", new User(4432, "Dave", "Sore", "NY", 2000)));
-        orders.add(new Order(875, 1600,Currency.EUR, "jacket", "BikeShop", new User(56432, "Shon", "Tompks", "Vashington", 2200)));
-        orders.add(new Order(34575, 32,Currency.EUR, "bike", "ClothesShop", new User(98432, "Dilan", "Nale", "Odessa", 2)));
-        orders.add(new Order(33625, 12,Currency.USD, "watch", "WatchShop", new User(2122, "Dona", "Gale", "Munchen", 34)));
-       // orders.add(new Order(33625, 12,Currency.USD, "watch", "WatchShop", new User(2122, "Dona", "Gale", "Munchen", 34)));
+        orders.add(new Order(3525, 50, Currency.UAH, "Wheel", "BobShop", new User(234432, "Vlad", "Len", "Kiev", 200)));
+        orders.add(new Order(35213, 250, Currency.UAH, "car", "Dilan", new User(297532, "Den", "Naizer", "Praha", 100)));
+        orders.add(new Order(5465, 540, Currency.USD, "bus", "AppleShop", new User(2332, "Dima", "Kirk", "NY", 20)));
+        //  orders.add(new Order(3523235, 10,Currency.USD, "apple", "OrangeShop", new User(98032, "Bob", "Wendel", "Berlin", 150)));
+        // orders.add(new Order(467, 40,Currency.USD, "glass", "BusShop", new User(98032, "Bob", "Wendel", "Berlin", 150)));
+        orders.add(new Order(6895, 890, Currency.EUR, "t-shirt", "CarShop", new User(4432, "Dave", "Sore", "NY", 2000)));
+        orders.add(new Order(875, 1600, Currency.EUR, "jacket", "BikeShop", new User(56432, "Shon", "Tompks", "Vashington", 2200)));
+        orders.add(new Order(34575, 32, Currency.EUR, "bike", "ClothesShop", new User(98432, "Dilan", "Nale", "Odessa", 2)));
+        orders.add(new Order(33625, 12, Currency.USD, "watch", "WatchShop", new User(2122, "Dona", "Gale", "Munchen", 34)));
+        orders.add(new Order(33625, 12, Currency.USD, "watch", "WatchShop", new User(2122, "Dona", "Gale", "Munchen", 34)));
+
+
 
         //System.out.println(users);
         //System.out.println(orders);
@@ -44,20 +42,21 @@ public class Main {
         //orders.sort(new comparecity());
         //System.out.println(orders);
 
-       // orders.sort(new compare3());
+        // orders.sort(new compare3());
         //System.out.println(orders);
 
-       Set<Order> set = new HashSet<>(orders);
+        Set<Order> set = new HashSet<>(orders);
         List<Order> list = new ArrayList<>(set);
-        System.out.println(list);
+        //System.out.println(list);
 
-       /* Iterator <Order> iter = list.iterator();
+
+        /*Iterator <Order> iter = list.iterator();
             while (iter.hasNext()){
                 if (iter.next().getPrice() < 1500)
                     iter.remove();
             }*/
 
-       // System.out.println(list);
+        // System.out.println(list);
 
         List<Order> currency = new ArrayList<>();
         List<Order> currency1 = new ArrayList<>();
@@ -71,29 +70,40 @@ public class Main {
        System.out.println(currency);
         System.out.println(currency1);
 */
-        Order order = new Order(3525, 50,Currency.UAH, "Wheel", "BobShop", new User(234432, "Vlad", "Len", "Kiev", 200));
-        order.get(orders);
+        //Order order = new Order(3525, 50,Currency.UAH, "Wheel", "BobShop", new User(234432, "Vlad", "Len", "Kiev", 200));
+        //order.get(orders);
 
         List<List<Order>> list2 = new ArrayList<>();
-        List<Order> kiev = new ArrayList<>();
-        kiev.add(list.get(0));
-        List<Order> praha = new ArrayList<>();
-        praha.add(list.get(1));
-        List<Order> moscow = new ArrayList<>();
-        moscow.add(list.get(2));
-        List<Order> odessa = new ArrayList<>();
-        odessa.add(list.get(4));
-        List<Order> vashington = new ArrayList<>();
-        vashington.add(list.get(3));
-        List<Order> munchen = new ArrayList<>();
-        munchen.add(list.get(5));
-        list2.add(kiev);
-        list2.add(praha);
-        list2.add(moscow);
-        list2.add(odessa);
-        list2.add(vashington);
-        list2.add(munchen);
+
+
+        int count = orders.size();
+        int count1 = 0;
+        for (int i = 0; i < orders.size(); i++) {
+            for (int j = 1; j < orders.size(); j++) {
+                if (orders.get(i).getUser().getCity().equals(orders.get(j).getUser().getCity()) && j != i) {
+                    count--;
+                    count1++;
+                }
+            }
+            count += count1 %= 2;
+        }
+
+        while (count > 0) {
+            list2.add(new ArrayList<>());
+            count--;
+        }
+
         System.out.println(list2);
 
+        /*for (int i = 0; i < list2.size(); i++)
+        for (int j = 0; j < list.size(); j++){
+                List<Order> subList = list2.get(i);
+            if (subList.isEmpty() && i >= j)
+                subList.add(list.get(j));
+            else if(subList.get(0).getUser().getCity().equals(list.get(j).getUser().getCity()))
+                subList.add(list.get(j));
+
+    }
+        System.out.println(list2);*/
     }
 }

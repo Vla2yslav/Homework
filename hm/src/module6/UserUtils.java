@@ -2,15 +2,6 @@ package module6;
 
 public class UserUtils {
     User[] uniqueUsers(User[] users){
-       /*for (int i = 0, k = 1; i < users.length; i++, k++){
-           if (k == users.length)
-               break;
-            if (users[i] == null)
-                deleteEmptyUsers(users);
-            if (k == deleteEmptyUsers(users).length)
-                break;
-            if (users[i].equals(users[k]))
-                users[i] = null;}*/
 
         for (int i = 0; i < users.length; i++) {
           users = deleteEmptyUsers(users);

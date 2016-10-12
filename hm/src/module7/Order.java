@@ -26,10 +26,10 @@ public class Order implements Comparable<Order>{
     public String toString() {
         return "Order{" +
                // "id=" + id +
-                ", price=" + price +
-                ", currency=" + currency +
-                ", itemName='" + itemName + '\'' +
-                ", shopIdentificator='" + shopIdentificator + '\'' +
+               // ", price=" + price +
+               // ", currency=" + currency +
+               // ", itemName='" + itemName + '\'' +
+               // ", shopIdentificator='" + shopIdentificator + '\'' +
                 ", user=" + user +
                 '}';
     }
@@ -116,13 +116,9 @@ public class Order implements Comparable<Order>{
     }
 
     public Order get(List<Order> orders) {
-    /*for (int i = 0; i < orders.size(); i++) {
-        int max = orders.get(0).getPrice();
-        if (orders.get(i).getPrice() > max)
-            max = orders.get(i).getPrice();
-    }*/
-    orders.sort(new ComparatorPrice());
+        orders.sort(new ComparatorPrice());
         System.out.println(orders.get(0));
     return orders.get(0);
     }
+
 }
