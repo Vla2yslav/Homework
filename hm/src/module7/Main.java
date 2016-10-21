@@ -95,15 +95,24 @@ public class Main {
 
         System.out.println(list2);
 
-        /*for (int i = 0; i < list2.size(); i++)
-        for (int j = 0; j < list.size(); j++){
-                List<Order> subList = list2.get(i);
-            if (subList.isEmpty() && i >= j)
-                subList.add(list.get(j));
-            else if(subList.get(0).getUser().getCity().equals(list.get(j).getUser().getCity()))
-                subList.add(list.get(j));
 
-    }
-        System.out.println(list2);*/
+
+        List<List<Order>> uniqueCities = new ArrayList<>();
+        for (Order order : orders) {
+            boolean isFound = false;
+            for (List<Order> orderList : uniqueCities) {
+                if (orderList.get(0).getUser().getCity().equals(order.getUser().getCity())) {
+                    isFound = true;
+                    orderList.add(order);
+                    break;
+                }
+            }
+            if (!isFound) {
+                List<Order> newOrderList = new ArrayList<>();
+                newOrderList.add(order);
+                uniqueCities.add(newOrderList);
+            }
+        }
+        System.out.println(uniqueCities);
     }
 }
