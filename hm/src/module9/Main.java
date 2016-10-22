@@ -18,7 +18,7 @@ public class Main {
             @Override
             public List<Order> apply(Order order) {
                 return set.stream()
-                        .filter(o -> !o.getCurrency().equals(Currency.EUR))
+                        .filter(o -> o.getUser().getCity().equals(order.getUser().getCity()))
                         .collect(Collectors.toList());
             }
         };
