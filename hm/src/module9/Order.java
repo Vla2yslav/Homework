@@ -3,7 +3,7 @@ package module9;
 
 import java.util.List;
 
-public class Order implements Comparable<Order>{
+public class Order{
 
     long id;
     int price;
@@ -109,15 +109,7 @@ public class Order implements Comparable<Order>{
         this.user = user;
     }
 
-    @Override
-    public int compareTo(Order o) {
-        return price - o.getPrice();
-    }
 
-    public Order get(List<Order> orders) {
-        orders.sort(new ComparatorPrice());
-        System.out.println(orders.get(0));
-    return orders.get(0);
-    }
+
 
 }
