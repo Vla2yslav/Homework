@@ -1,34 +1,13 @@
 package module9;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
-
-    private static List<List<Order>> separateCity(List<Order> orders) {
-        Set<Order> set = new HashSet<>(orders);
-
-        Function<Order, List<Order>> f = new Function<Order, List<Order>>() {
-            @Override
-            public List<Order> apply(Order order) {
-                return set.stream()
-                        .filter(o -> o.getUser().getCity().equals(order.getUser().getCity()))
-                        .collect(Collectors.toList());
-            }
-        };
-
-        List<List<Order>> res =  orders.stream()
-                .map(f)
-                .collect(Collectors.toList());
-        return res;
-    }
-
+    
     public static void main(String[] args) {
 
 
@@ -75,6 +54,8 @@ public class Main {
         Predicate<Order> price = p -> p.getPrice() > 1500;
         Predicate<Order> surname = s -> s.getUser().getLastName().equalsIgnoreCase("Petrov");
         Predicate<Order> currency = c -> !c.getCurrency().equals(Currency.USD);
+        Predicate<Order> currencyUSD = c -> c.getCurrency().equals(Currency.USD);
+        Predicate<Order> currencyUAH = c -> c.getCurrency().equals(Currency.UAH);
 
        // orders.stream().filter(price).forEach(System.out::println);
 
@@ -85,17 +66,19 @@ public class Main {
       //  orders.stream().distinct().collect(Collectors.toList()).forEach(System.out::println);
 
 
-       // System.out.println(separateCity(orders));
+        Map<String, List<Order>> groupByCityMap =
+                orders.stream().collect(Collectors.groupingBy(order -> order.getUser().getCity()));
 
-        Function<Order, List<Order>> f = new Function<Order, List<Order>>() {
-            @Override
-            public List<Order> apply(Order order) {
-                return orders.stream()
-                        .filter(o -> o.getCurrency().equals(Currency.UAH))
-                        .collect(Collectors.toList());
-            }
-        };
+        System.out.println(groupByCityMap);
 
-orders.stream().map(f).forEach(System.out::println);
+        orders.stream().filter(currencyUSD)
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+
+
+        orders.stream().filter(currencyUAH)
+                        .collect(Collectors.toList())
+                        .forEach(System.out::println);
+
     }
 }
