@@ -32,12 +32,13 @@ Integer a = null;
           System.out.println("You caught exception: "+e.toString());
       }
 
-        try{
-            ThreeException.except(2);
-        }
-        catch(NullPointerException  | ClassCastException | ArithmeticException e){
-            System.out.println("You caught all exception");
-        }
+       try {
+           ThreeException.except(2);
+       }
+       catch(Exception e){
+
+           System.out.println("You caught all exception");
+       }
 
         MethodWithException.f();
     }
